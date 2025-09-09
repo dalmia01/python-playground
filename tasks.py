@@ -46,3 +46,65 @@ print("Remove duplicates array with trailing placeholders : ", removeDuplicatesW
 print("Remove duplicates array with trailing placeholders : ", removeDuplicatesWithTrailingPlaceholder([1], "_"))
 print("Remove duplicates array with trailing placeholders : ", removeDuplicatesWithTrailingPlaceholder([1, 1, 1], "+"))
 print("Remove duplicates array with trailing placeholders : ", removeDuplicatesWithTrailingPlaceholder([1, 1, 2, 2, 3, 4, 4], "%"))
+
+
+print("----------")
+
+import string
+import random
+
+def secretLanguageEncodeCode(text_string):
+    """
+    create a secret encoded code for a text_string
+    """
+    
+    alphabet_letters = list(string.ascii_lowercase)
+    
+    if not text_string:
+        return ""
+    elif len(text_string) < 3:
+        return text_string[::-1]
+    else:
+        encoded = ""
+        text_string = text_string[1:] + text_string[0]
+        for index in range(6):
+            random_integer_range = random.randrange(0, 26)
+            if index == 3:
+                encoded += text_string
+                encoded += alphabet_letters[random_integer_range]
+            else:
+                encoded += alphabet_letters[random_integer_range]
+                
+        return encoded
+        
+def secretLanguageDecodeCode(text_string):
+    """
+    create a decode code for a text_string
+    """
+    
+    if not text_string:
+        return ""
+    elif len(text_string) < 3:
+        return text_string[::-1]
+    else:
+        decoded = ""
+        for index in range(3, len(text_string) - 3):
+            decoded += text_string[index]
+        
+        decoded = decoded[-1] + decoded[0:-1]
+        return decoded
+
+original = "abcdef"
+encoded = secretLanguageEncodeCode(original)
+decoded = secretLanguageDecodeCode(encoded)
+print("Original string: ", original)
+print("Encoded string: ", encoded)
+print("Decoded string: ", decoded)
+
+original = "zrtyu"
+encoded = secretLanguageEncodeCode(original)
+decoded = secretLanguageDecodeCode(encoded)
+print("Original string: ", original)
+print("Encoded string: ", encoded)
+print("Decoded string: ", decoded)
+    
