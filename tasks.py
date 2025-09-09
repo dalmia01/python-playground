@@ -10,7 +10,7 @@ def findJewelStones(jewels, stones):
     stones = stones.strip()
     for char in jewels:
         if char in stones:
-            count = count + 1;
+            count = count + 1
             
     return count
     
