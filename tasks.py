@@ -107,4 +107,25 @@ decoded = secretLanguageDecodeCode(encoded)
 print("Original string: ", original)
 print("Encoded string: ", encoded)
 print("Decoded string: ", decoded)
+
+print("----------")
+
+def checkArrDuplicates(arr):
+    """
+    check if all elements in array are uniques then return false else true
+    """
+    keys = {
+        
+    }
+    
+    for item in arr:
+        if item in keys:
+            return True
+        else:
+            keys[item] = 1
+    
+    return False
+    
+print("what is the value : ", checkArrDuplicates([1,2,3,1]))
+print("what is the value : ", checkArrDuplicates([1,2,3,4]))
     
