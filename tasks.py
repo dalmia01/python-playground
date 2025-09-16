@@ -128,4 +128,31 @@ def checkArrDuplicates(arr):
     
 print("what is the value : ", checkArrDuplicates([1,2,3,1]))
 print("what is the value : ", checkArrDuplicates([1,2,3,4]))
+
+
+print("----------")
+
+
+
+text1 = input("Enter first string: ")
+text2 = input("Enter second string: ")
+
+def isAnagram(str1, str2):
+    """
+    check if strings provided are anagram or not
+    """
+    if(len(str1) != len(str2)):
+        return "Not Anagram"
+    else:
+        count = 0
+        for char in str2:
+            if(char in str1):
+                count += 1
+            else:
+                return "Not Anagram"
+        
+        if (count) == len(str1):
+            return "Anagram"
+        
+print(isAnagram(text1, text2))
     
